@@ -1,0 +1,17 @@
+pip install qrcode[pil]
+import qrcode
+
+# ลิสต์ลิงก์ทั้งหมด
+links = [
+    "https://example.com/1",
+    "https://example.com/2",
+    "https://example.com/3",
+    # เพิ่มลิงก์ต่อได้เรื่อย ๆ
+]
+
+# วนลูปสร้าง QR และบันทึกแต่ละไฟล์
+for i, link in enumerate(links, start=1):
+    img = qrcode.make(link)
+    filename = f"qr_{i}.png"
+    img.save(filename)
+    print(f"✅ สร้างไฟล์ {filename} สำหรับลิงก์: {link}")
